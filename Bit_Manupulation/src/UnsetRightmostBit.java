@@ -1,3 +1,5 @@
+package Bit_Manupulation.src;
+
 import java.util.Scanner;
 
 public class UnsetRightmostBit {
@@ -7,13 +9,12 @@ public class UnsetRightmostBit {
         int num = sc.nextInt();
         unsetRightMostBit(num);
     }
-    public static int unsetRightMostBit(int n) {
+    public static void unsetRightMostBit(int n) {
         int newNum = (n & n-1);
         System.out.print("Before :");
         printBits(n);
         System.out.print("After  :");
         printBits(newNum);
-        return (n&n-1);
     }
     public static void printBits(int n) {
         for (int i=7; i>=0; i--) {

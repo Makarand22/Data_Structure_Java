@@ -1,3 +1,5 @@
+package Bit_Manupulation.src;
+
 import java.util.Scanner;
 
 public class PowerOfTwo {
