@@ -5,26 +5,35 @@ import java.util.Scanner;
 public class FindIndex {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // Input array size and validate
         System.out.print("Enter the Array Size: ");
         int size = sc.nextInt();
-        System.out.print("Enter the Array : ");
+        if (size <= 0) {
+            System.out.println("Array size must be greater than zero.");
+            return;
+        }
         int[] arr = new int[size];
-        inputArray(arr, size, sc);
-
-
-        if(checkSorted(arr)) {
-            System.out.print("Enter the Element : ");
-            int k = sc.nextInt();
-            printArray(arr);
-            System.out.println("The Index is : " + findIndex(arr, k));
+        System.out.print("Enter the Array : ");
+        inputArray(arr, sc);
+        // Check if array is sorted
+        if (!checkSorted(arr)) {
+            System.out.println("Array is not sorted...");
+            return;
+        }
+        System.out.print("Enter the Element : ");
+        int k = sc.nextInt();
+        // Perform binary search and print result
+        int index = findIndex(arr, k);
+        if (index != -1) {
+            System.out.println("The Index is: " + index);
         } else {
-            System.out.println("Array is not sorted.....");
+            System.out.println("Element not found.");
         }
 
     }
 
-    public static void inputArray(int[] arr, int size, Scanner sc ){
-        for (int i=0; i<size; i++ ) {
+    public static void inputArray(int[] arr, Scanner sc ){
+        for (int i=0; i<arr.length; i++ ) {
             arr [i] = sc.nextInt();
         }
     }
